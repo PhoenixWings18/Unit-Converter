@@ -1,7 +1,8 @@
 function [] = radioSelect(~,~)
 
     global gui;
-
+%Need to find out if return or break is the correct command to use.
+    
     inputVar = gui.buttonGroup1.SelectedObject.String;
     convertTo = gui.buttonGroup2.SelectedObject.String;
 
@@ -19,15 +20,13 @@ function [] = radioSelect(~,~)
         return;
     end
 
-    if gui.Text.String %if this has a letter
-        errordlg('Only real, rational numeric values are allowed. Please enter a number in the input box', 'Error', 'modal');
+    if isnan(str2double(gui.Text.String)) || gui.Text.String == ''
+        errordlg('Only real, rational numeric values are allowed. Please enter a number in the input box.', 'Error', 'modal');
         return;
     else
-        number = str2num(gui.Text.String);
+        number = str2double(gui.Text.String);
         conversion(number, inputVar, convertTo);
     end
-
-
 
 end
 
@@ -35,17 +34,17 @@ function [] = conversion(number, inputVar, convertTo)
 
     global gui;
     
-    if strcmp(inputVar, 'Joules (J)') && strcmp(convertTo, 'British Thermal Units (BTU)')
+    if strcmp(inputVar, 'Joules (J)') & strcmp(convertTo, 'British Thermal Units (BTU)')
         compute = number/1055.05585;
-    elseif strcmp(inputVar, 'Joules (J)') && strcmp(convertTo, 'Tons of TNT')
+    elseif strcmp(inputVar, 'Joules (J)') & strcmp(convertTo, 'Tons of TNT')
         compute = number/4184000000;
-    elseif strcmp(inputVar, 'Pounds (lbs)') && strcmp(convertTo, 'Newtons (N)')
+    elseif strcmp(inputVar, 'Pounds (lbs)') & strcmp(convertTo, 'Newtons (N)')
         compute = number/0.22480894244319;
-    elseif strcmp(inputVar, 'Pounds (lbs)') && strcmp(convertTo, 'Kilograms (kg)')
+    elseif strcmp(inputVar, 'Pounds (lbs)') & strcmp(convertTo, 'Kilograms (kg)')
         compute = (number/0.22480894244319)/9.81;
-    elseif strcmp(inputVar, 'Fahrenheit (F)') && strcmp(convertTo, 'Celsius (C)')
+    elseif strcmp(inputVar, 'Fahrenheit (F)') & strcmp(convertTo, 'Celsius (C)')
         compute = (number - 32)*(5/9);
-    elseif strcmp(inputVar, 'Fahrenheit (F)') && strcmp(convertTo, 'Kelvin (K)')
+    elseif strcmp(inputVar, 'Fahrenheit (F)') & strcmp(convertTo, 'Kelvin (K)')
         compute = (number - 32)*(5/9) + 273.15;
     else 
         errordlg('Please select the input units and the desired conversion units', 'Error', 'modal');
@@ -55,8 +54,10 @@ function [] = conversion(number, inputVar, convertTo)
      
 end
 
-%need to make sure the dispConversion can access the compute variable and
-%be called by the gui function.
+%Need to make sure the dispConversion can access the compute variable and
+%be called by the gui function, then display the result in the non-editable text box
+%when the pushbutton "convert" is pressed. Will need to see the pushbutton
+%function in the GUI before I can write this.
 
 function [] = dispConversion(compute)
     global gui;
