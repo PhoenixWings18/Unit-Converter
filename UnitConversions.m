@@ -59,8 +59,15 @@ end
 %when the pushbutton "convert" is pressed. Will need to see the pushbutton
 %function in the GUI before I can write this.
 
-function [] = dispConversion(compute)
+function [] = dispConversion(~, ~, compute)
     global gui;
+    
+    initialNumber = gui.Text.String;
+    initalUnit = gui.buttonGroup1.SelectedObject.String;
+    convertUnit = gui.buttonGroup2.SelectedObject.String;
+    answerString = ;
+    gui.answer = uicontrol('style', 'text', 'units', 'normalized', 'position',...
+    [.15 .78 .5 .05], 'string', answerString, 'horizontalalignment', 'right');
     
 
 end
