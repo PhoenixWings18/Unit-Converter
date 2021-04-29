@@ -1,0 +1,10 @@
+UNIT CONVERTER:
+Hello! This document explains how to use the Unit-Converter.m file you have downloaded to your computer. To begin, open the .m file in MATLAB and type "Unit-Converter()" into your command window. This will initialize the GUI. A figure will appear. This is the Unit Converter! Please follow these steps to use it:
+
+1) In the editable text box, type any real, rational numeric value. The Unit Converter does not accept alphabetical, irrational, or imaginary number inputs (for example, it will not accept any words or values such as pi, e, ln(), trigonometric functions, or imaginary inputs like 0.000 + 0.493i).
+2) Select the units for the number you are inputing from the radio buttons on the right of the input text box. 
+3) Select the units you wish to convert to from the radio button group on the far right. Make sure the conversion you wish to perform is valid (for example, you cannot convert units of energy to units of temperature, or units of temperature to units of mass).
+4) Click the "Convert" button at the bottom of the screen. The answer for your conversion will appear above the "Convert" button. If your conversion was not valid, or if you had a non-numerical input in the text box, an error message will appear asking you to change your input or unit selection.
+5) You can copy the conversion and use it as needed. To begin a new conversion, repeat steps 1-4.
+
+Unit-Converter.m and its associated files were made by Aussia Stander and Helen Philbrick in April-May 2021. You are free to use the code and its files as long as you make it better and give credit to us, its original authors, whenever it is reproduced.
