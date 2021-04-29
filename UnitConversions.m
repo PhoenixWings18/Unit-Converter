@@ -1,8 +1,9 @@
 function [] = radioSelect(~,~)
 
     global gui;
-%Need to find out if return or break is the correct command to use.
     
+%Need to find out if return or break is the correct command to use.
+
     inputVar = gui.buttonGroup1.SelectedObject.String;
     convertTo = gui.buttonGroup2.SelectedObject.String;
 
@@ -32,7 +33,10 @@ end
 
 function [] = conversion(number, inputVar, convertTo)
 
-    global gui;
+    global gui; 
+    
+    %Do I need to restate the input variables to this function, or will it
+    %just work? Need to test this with the completed GUI_Control.
     
     if strcmp(inputVar, 'Joules (J)') & strcmp(convertTo, 'British Thermal Units (BTU)')
         compute = number/1055.05585;
@@ -54,18 +58,24 @@ function [] = conversion(number, inputVar, convertTo)
      
 end
 
-%Need to make sure the dispConversion can access the compute variable and
-%be called by the gui function, then display the result in the non-editable text box
-%when the pushbutton "convert" is pressed. Will need to see the pushbutton
-%function in the GUI before I can write this.
+%{
+Need to make sure the dispConversion can access the compute variable and
+be called by the gui function, then display the result in the non-editable text box
+when the pushbutton "convert" is pressed. Will need to see the pushbutton
+function in the GUI before I can write this. 
+
+Note: DO NOT create a non-editable text box in the GUI! It will not appear until the button is
+pushed, the whole point of dispConversion is to display it after the
+button is pushed.
+%}
 
 function [] = dispConversion(~, ~, compute)
+
     global gui;
     
-    initialNumber = gui.Text.String;
-    initalUnit = gui.buttonGroup1.SelectedObject.String;
-    convertUnit = gui.buttonGroup2.SelectedObject.String;
-    answerString = ;
+    answerString = [gui.Text.String, ' ', gui.buttonGroup1.SelectedObject.String, ' equals ', ...
+       compute, ' ', gui.buttonGroup2.SelectedObject.String, '.'];
+   
     gui.answer = uicontrol('style', 'text', 'units', 'normalized', 'position',...
     [.15 .78 .5 .05], 'string', answerString, 'horizontalalignment', 'right');
     
