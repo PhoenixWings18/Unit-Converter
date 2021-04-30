@@ -11,10 +11,12 @@ function [] = radioSelect(~,~)
             strcmp(convertTo, 'Kilograms'))
         errordlg('Input units cannot be converted to output units. Please select different output units.', 'Error', 'modal');
         return;
+        
     elseif strcmp(inputVar, 'Fahrenheit') && ~(strcmp(convertTo, 'Kelvin') || ...
             strcmp(convertTo, 'Celsius'))
         errordlg('Input units cannot be converted to output units. Please select different output units.', 'Error', 'modal');
         return;
+        
     elseif strcmp(inputVar, 'Joules') && ~(strcmp(convertTo, 'Tons of TNT') || ...
             strcmp(convertTo, 'British Thermal Units'))
         errordlg('Input units cannot be converted to output units. Please select different output units.', 'Error', 'modal');
@@ -24,6 +26,7 @@ function [] = radioSelect(~,~)
     if isnan(str2double(gui.Text.String)) || gui.Text.String == ''
         errordlg('Only real, rational numeric values are allowed. Please enter a number in the input box.', 'Error', 'modal');
         return;
+        
     else
         number = str2double(gui.Text.String);
         conversion(number, inputVar, convertTo);
@@ -40,18 +43,25 @@ function [] = conversion(number, inputVar, convertTo)
     
     if strcmp(inputVar, 'Joules') && strcmp(convertTo, 'British Thermal Units')
         compute = number/1055.05585;
+        
     elseif strcmp(inputVar, 'Joules') && strcmp(convertTo, 'Tons of TNT')
         compute = number/4184000000;
+        
     elseif strcmp(inputVar, 'Pounds') && strcmp(convertTo, 'Newtons')
         compute = number/0.22480894244319;
+        
     elseif strcmp(inputVar, 'Pounds') && strcmp(convertTo, 'Kilograms')
         compute = (number/0.22480894244319)/9.81;
+        
     elseif strcmp(inputVar, 'Fahrenheit') && strcmp(convertTo, 'Celsius')
         compute = (number - 32)*(5/9);
+        
     elseif strcmp(inputVar, 'Fahrenheit') && strcmp(convertTo, 'Kelvin')
         compute = (number - 32)*(5/9) + 273.15;
+        
     else 
         errordlg('Please select the input units and the desired conversion units', 'Error', 'modal');
+   
     end
     
      dispConversion(compute);
