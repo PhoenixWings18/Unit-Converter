@@ -81,3 +81,10 @@ function [] = dispConversion(~, ~, compute)
     
 
 end
+
+%{
+Unit-Converter.m and its associated files were made by Aussia Stander and 
+Helen Philbrick in April-May 2021. You are free to use the code and its files 
+as long as you make it better and give credit to us, its original authors, 
+whenever and wherever it is reproduced.
+%}
