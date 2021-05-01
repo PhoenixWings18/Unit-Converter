@@ -88,7 +88,7 @@ function [] = dispConversion(~, ~)
     global gui;
 
     gui.answer = uicontrol('style', 'text', 'units', 'normalized', 'position',...
-        [.19 .23 .5 .1], 'string', '', 'horizontalalignment', 'right');
+        [.12 .2 .75 .2], 'string', '');
 
     if isnan(str2double(gui.startNumber.String)) || (strlength(gui.startNumber.String) == 0)
         
@@ -131,7 +131,7 @@ function [] = dispConversion(~, ~)
     end
 
     gui.answer = uicontrol('style', 'text', 'units', 'normalized', 'position',...
-        [.19 .23 .5 .1], 'string', gui.answerString, 'horizontalalignment', 'right');
+        [.12 .2 .75 .2], 'string', gui.answerString);
 
 end
 
