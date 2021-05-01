@@ -36,7 +36,7 @@ function [] = radioSelect(~,~)
     
     convertTo = gui.buttonGroupEnd.SelectedObject.String;
     
-    num = str2num(gui.startNumber.String);
+    num = str2double(gui.startNumber.String);
 
     compute = 0;
 
