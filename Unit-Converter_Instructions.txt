@@ -1,5 +1,5 @@
 UNIT CONVERTER:
-Hello! This document explains how to use the Unit-Converter.m file you have downloaded to your computer. To begin, open the .m file in MATLAB and type "Unit-Converter()" into your command window. This will initialize the GUI. A figure will appear. This is the Unit Converter! Please follow these steps to use it:
+Hello! This document explains how to use the unitConverter.m file you have downloaded to your computer. To begin, open the .m file in MATLAB and type "unitConverter()" into your command window. This will initialize the GUI. A figure will appear. This is the Unit Converter! Please follow these steps to use it:
 
 1) In the editable text box, type any real, rational numeric value. The Unit Converter does not accept alphabetical, irrational, or imaginary number inputs (for example, it will not accept any words or values such as pi, e, ln(), trigonometric functions, or imaginary inputs like 0.000 + 0.493i).
 2) Select the units for the number you are inputing from the radio buttons on the right of the input text box. 
