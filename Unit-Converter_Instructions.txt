@@ -7,4 +7,4 @@ Hello! This document explains how to use the Unit-Converter.m file you have down
 4) Click the "Convert" button at the bottom of the screen. The answer for your conversion will appear above the "Convert" button. If your conversion was not valid, or if you had a non-numerical input in the text box, an error message will appear asking you to change your input or unit selection.
 5) You can copy the conversion and use it as needed. To begin a new conversion, repeat steps 1-4.
 
-Unit-Converter.m and its associated files were made by Aussia Stander and Helen Philbrick in April-May 2021. You are free to use the code and its files as long as you make it better and give credit to us, its original authors, whenever and wherever it is reproduced.
+unitConverter.m and its associated files were created by Aussia Stander and Helen Philbrick in April-May 2021. You are free to use this code and its associated files as long as you make it better and give credit to us, its original authors, whenever and wherever it is reproduced.
