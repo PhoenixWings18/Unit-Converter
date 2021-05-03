@@ -9,8 +9,9 @@ function [] = unitConverter()
 
     gui.fig = figure('numbertitle','off','name','Unit Converter');
     
-    %Editable text box for number input
-    gui.startNumber = uicontrol('style','edit','unit','normalized','position',[.01 .7 .17 .1]);
+    %Editable text box for number input, calls on radioSelect to perform
+    %conversions whenever a value is typed into it
+    gui.startNumber = uicontrol('style','edit','unit','normalized','position',[.01 .7 .17 .1], 'callback', {@radioSelect});
     
     %Non-editable text box between radiobutton groups for asthetic
     gui.textBox = uicontrol('style','text','unit','normalized','position',[.25 .25 .5 .5],'string','Convert to');
@@ -33,12 +34,11 @@ function [] = unitConverter()
     %pushbutton to perform conversion
     gui.convert = uicontrol('style','pushbutton','unit','normalized','position',[.37 .1 .25 .1],'string','Convert Units','callback', {@dispConversion});
 
-
 end
 
 function [] = radioSelect(~,~)
-%This function is called whenever a radiobutton is selected. It also
-%performs the mathematics of the unit conversion.
+%This function is called whenever a radiobutton is selected or text is typed into the editbox.
+%It performs the mathematics of the unit conversion
 
     %Declare access to global variable gui
     global gui;
@@ -109,12 +109,6 @@ end
 function [] = dispConversion(~, ~)
 %This function displays the performed conversion if the conversion is valid
 %and is called by the pushbutton
-    
-    %If a radiobutton is not pushed, but the text in dispConversion has
-    %changed, the answer will not change because a conversion will not be
-    %performed. To correct this, always call on radioSelect to perform a
-    %conversion whenever the pushbutton is pressed.
-    radioSelect();
     
     %Declare access to global variable gui
     global gui;
